@@ -1,0 +1,55 @@
+{
+  "name": "Bayut-react-assignment",
+  "version": "3.0.2",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.4",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "^4.0.2",
+    "axios": "^0.21.1",
+    "connected-react-router": "^6.4.0",
+    "downshift": "^3.2.10",
+    "history": "^4.9.0",
+    "memoize-one": "^5.1.1",
+    "moment": "^2.29.1",
+    "node-sass": "^4.0.0",
+    "nprogress": "^0.2.0",
+    "path": "^0.12.7",
+    "prettier": "^1.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.9.0",
+    "react-notifications": "^1.7.2",
+    "react-placeholder": "^3.0.2",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "reactstrap": "^8.8.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.2",
+    "save": "^2.4.0",
+    "styled-components": "^5.2.1",
+    "styled-theme": "^0.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
