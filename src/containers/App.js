@@ -9,7 +9,7 @@ class App extends Component {
 		const { match, location } = this.props;
 
 		if (location.pathname === '/') {
-			return <Redirect to={'/app/home'} />;
+			return <Redirect to={'/app/gists'} />;
 		}
 
 		return (

@@ -17,5 +17,4 @@ const MainApp = () =>
     </ConnectedRouter>
   </Provider>;
 
-
 export default MainApp;

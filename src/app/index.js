@@ -9,7 +9,7 @@ class App extends React.Component {
 		const { match } = this.props;
 		return (
 			<Switch>
-				<Route path={`${match.url}/home`} component={asyncComponent(() => import('./routes/home'))} />
+				<Route path={`${match.url}/gists`} component={asyncComponent(() => import('./routes/GistsPage'))} />
 				<Route component={asyncComponent(() => import('components/Error404'))} />
 			</Switch>
 		);
