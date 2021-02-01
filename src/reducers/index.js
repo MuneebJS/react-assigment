@@ -4,5 +4,5 @@ import Gists from './Gists';
 
 export default (history) => combineReducers({
   router: connectRouter(history),
-  gists: Gists,
+  gistsReducer: Gists,
 });
