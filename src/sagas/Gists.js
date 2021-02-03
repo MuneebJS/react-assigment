@@ -3,9 +3,8 @@ import { GISTS_RECIEVED, USER_GISTS_RECIEVED, SEARCH_USERS_RECIEVED } from '../c
 import { Octokit } from "@octokit/rest";
 const { createTokenAuth } = require("@octokit/auth-token");
 
-const token = "7bf4d49f403d52dcb5bffbd3d50cab83efc91ae5";
 
-const octokit = new Octokit({auth: token});
+const octokit = new Octokit();
 
 // Get public gists list
 export function* fetchGists() {
