@@ -4,13 +4,13 @@ import CustomScrollbars from '../../util/CustomScrollbars';
 
 const SearchList = ({data, onClick}) => {
     let listContent = [];
-    data.map(item => {
-        listContent.push(
-            <div className="">
-                <li><a href="javascript:void(0)" onClick={() => onClick(item)}>{item.login}</a></li>
-            </div>
-        );
-    });
+    // data.map(item => {
+    //     listContent.push(
+    //         <div className="">
+    //             <li><a href="javascript:void(0)" onClick={() => onClick(item)}>{item.login}</a></li>
+    //         </div>
+    //     );
+    // });
 
     return (
         <div className="d-flex justify-content-center">

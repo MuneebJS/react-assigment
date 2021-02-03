@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GistCard from '../GistCard';
 import CustomScrollbars from '../../util/CustomScrollbars';
+import CircularProgress from '../CircularProgress';
 
-const GistsList = ({data}) => {
+const GistsList = ({data, loading}) => {
     const listContent = [];
 
     data.map(item => {
         listContent.push(
-            <div className="col-12" key={item.id}>
+            <div className="col-4" key={item.id}>
                 <GistCard data={item} />
             </div>
         );
@@ -16,10 +17,10 @@ const GistsList = ({data}) => {
 
     return (
             <CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
-                <div className="row">
-                    {listContent}
+                <div className="row list-parent">
+                    {loading ? <CircularProgress /> : listContent}
                 </div>
-            </CustomScrollbars>
+             </CustomScrollbars>
     );
 }
 

@@ -29,23 +29,23 @@ class GistsPage extends React.Component {
 	handleSearchEnter = (event) => {
 		if (event.key === 'Enter') {
 			this.props.getUserGists(event.target.value);
-			this.setState({ isShowUsersSearchList: false });
+			// this.setState({ isShowUsersSearchList: false });
 		}
 	}
 
-	searchUsers = (event) => {
-		const { value } = event.target;
-		this.setState({ userSearchValue: value, isShowUsersSearchList: true });
+	// searchUsers = (event) => {
+	// 	const { value } = event.target;
+	// 	this.setState({ userSearchValue: value, isShowUsersSearchList: true });
 
-		if (value.length > 3) {
-			this.props.searchUsers(value);
-		}
-	}
+	// 	if (value.length > 2) {
+	// 		this.props.searchUsers(value);
+	// 	}
+	// }
 
-	handleSelectUser = (item) => {
-		this.props.getUserGists(item.login);
-		this.setState({ isShowUsersSearchList: false });
-	}
+	// handleSelectUser = (item) => {
+	// 	this.props.getUserGists(item.login);
+	// 	this.setState({ isShowUsersSearchList: false });
+	// }
 
 	handleInputChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
@@ -67,11 +67,11 @@ class GistsPage extends React.Component {
 							<SearchBox onChange={this.handleInputChange} name="usernameGist" value={this.state.usernameGist} onKeyDown={this.handleSearchEnter} placeholder="Enter username to get gists" />
 						</div>
 						<div className="col-md-6">
-							<SearchBox onChange={this.searchUsers} name="userSearchValue" value={this.state.userSearchValue} onKeyDown={this.handleSearchEnter} placeholder="Search For a User" onFocus={this.userSearchOnFocus} />
-							{isShowUsersSearchList && <SearchList data={this.props.searchedUsers} onClick={this.handleSelectUser} />}
+							{/* <SearchBox onChange={this.searchUsers} name="userSearchValue" value={this.state.userSearchValue} onKeyDown={this.handleSearchEnter} placeholder="Search For a User" onFocus={this.userSearchOnFocus} /> */}
+							{/* {isShowUsersSearchList && <SearchList data={this.props.searchedUsers} onClick={this.handleSelectUser} />} */}
 						</div>
 						<div className="col-md-12">
-							<GistsLists data={this.props.gists} />
+							<GistsLists data={this.props.gists} loading={this.props.isGetGistsInProgress}/>
 						</div>
 					</div>
 				{/* </CustomScrollbars> */}
@@ -85,6 +85,7 @@ class GistsPage extends React.Component {
 
 const mapStateToProps = (state) => ({
 	gists: state.gistsReducer.gists,
+	isGetGistsInProgress: state.gistsReducer.isEetGistsInProgress,
 	searchedUsers: state.gistsReducer.searchedUsers
 });
 
