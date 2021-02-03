@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// import 'bootstrap/dist/css/bootstrap.min.css';
 const rootEl = document.getElementById('app-site');
 
 // Create a reusable render method that we can call more than once

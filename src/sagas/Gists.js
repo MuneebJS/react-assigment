@@ -1,8 +1,11 @@
 import { put } from 'redux-saga/effects';
 import { GISTS_RECIEVED, USER_GISTS_RECIEVED, SEARCH_USERS_RECIEVED } from '../constants/ActionTypes';
 import { Octokit } from "@octokit/rest";
+const { createTokenAuth } = require("@octokit/auth-token");
 
-const octokit = new Octokit();
+const token = "7bf4d49f403d52dcb5bffbd3d50cab83efc91ae5";
+
+const octokit = new Octokit({auth: token});
 
 // Get public gists list
 export function* fetchGists() {
