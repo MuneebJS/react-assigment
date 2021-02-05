@@ -34,7 +34,7 @@ body {
 	padding-left: 0px !important;
 
 	.find-btn {
-		height: 37px;
+		height: 38px;
 		width: 70px
 	}
 }
@@ -42,5 +42,39 @@ body {
 .search-wrapper {
 	margin-top: 30px;
 	padding: 0px 30px;
+
+	input {
+		border-radius: 0.25rem 0px 0px 0.25rem;
+	}
+
+	.input-wrapper {
+		padding-right: 0px;
+	}
+
+	
+	.find-btn {
+		background-color: #28b16d !important;
+		border-radius: 0px 0.25rem 0.25rem 0px;
+	}
 }
 
+.main-footer {
+	background: url('https://www.bayut.com/assets/iconFooterBackground_noinline.352db2e63bb1b994139f38eb2ff1d1b5.svg');
+    background-color: #000;
+    background-repeat: repeat;
+    background-size: 28px 28px;
+    overflow: hidden;
+    padding-top: 4rem;
+	padding-bottom: 4rem;
+	color: #bbb;
+
+	a {
+		color: #bbb !important;
+		text-decoration: none;
+
+		&:hover {
+			color: #bbb !important;
+			text-decoration: underline;
+		}
+	}
+}

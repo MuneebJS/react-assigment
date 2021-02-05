@@ -2,8 +2,6 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import asyncComponent from '../util/asyncComponent';
-import Header from 'components/Header';
-
 
 class App extends React.Component {
 	render() {

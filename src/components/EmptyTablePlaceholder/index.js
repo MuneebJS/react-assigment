@@ -10,7 +10,7 @@ class EmptyTablePlaceholder extends React.Component {
 					alt="No record found"
 					title="No record found"
 				/>
-				<div className="no-record-found-text">No record found</div>
+				<div className="no-record-found-text">No resuls found</div>
 			</div>
 		);
 	}
