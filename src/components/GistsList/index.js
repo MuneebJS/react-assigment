@@ -6,7 +6,6 @@ import CircularProgress from '../CircularProgress';
 
 const GistsList = ({ data, loading }) => {
 	const listContent = [];
-
 	data.map((item) => {
 		listContent.push(
 			<div className="col-12" key={item.id}>
@@ -16,9 +15,9 @@ const GistsList = ({ data, loading }) => {
 	});
 
 	return (
-		// <CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
+		<CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
 			<div className="row list-parent">{loading ? <CircularProgress /> : listContent}</div>
-		// </CustomScrollbars>
+		</CustomScrollbars>
 	);
 };
 
