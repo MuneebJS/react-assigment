@@ -6,7 +6,7 @@ import CircularProgress from '../CircularProgress';
 import Pagination from '../Pagination';
 import EmptyTablePlaceholder from '../EmptyTablePlaceholder';
 
-const GistsList = ({ data, loading, page, handlePagination }) => {
+const GistsList = ({ data, loading, page, handlePagination, isPublicGists }) => {
 	let content;
 
 	if (loading) {
@@ -26,11 +26,11 @@ const GistsList = ({ data, loading, page, handlePagination }) => {
 				<CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
 					<div className="row list-parent">{listContent}</div>
 				</CustomScrollbars>
-				<Pagination
+				{isPublicGists && <Pagination
 					page={page}
 					prevClick={() => handlePagination(page - 1)}
 					nextClick={() => handlePagination(page + 1)}
-				/>
+				/>}
 			</>
 		);
 	} else {
@@ -42,6 +42,10 @@ const GistsList = ({ data, loading, page, handlePagination }) => {
 
 GistsList.prototype = {
 	data: PropTypes.array,
+	loading: PropTypes.bool,
+	page: PropTypes.page,
+	handlePagination: PropTypes.func,
+	isPublicGists: PropTypes.bool
 };
 
 export default GistsList;

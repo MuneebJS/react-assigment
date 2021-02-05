@@ -1,18 +1,17 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { connect } from 'react-redux';
-import { getGists, getUserGists, hideMessage } from '../../../actions/Gists';
-import { bindActionCreators } from 'redux';
-import GistsLists from '../../../components/GistsList';
-import InputField from '../../../components/InputField';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import { GISTS_LIMIT_PER_PAGE } from '../../../constants/Global';
-
 import 'react-notifications/lib/notifications.css';
 
-// import Header from '../../../components/Header';
-import CustomScrollbars from '../../../util/CustomScrollbars';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getGists, getUserGists, hideMessage } from '../../../actions/Gists';
+import GistsLists from '../../../components/GistsList';
+import InputField from '../../../components/InputField';
+import { GISTS_LIMIT_PER_PAGE } from '../../../constants/Global';
+
+
 
 let isMessageShow = false;
 
@@ -102,6 +101,7 @@ class GistsPage extends React.Component {
 								loading={this.props.isGetGistsInProgress}
 								page={this.state.page}
 								handlePagination={this.handlePagination}
+								isPublicGists={this.state.isPublicGists}
 							/>
 						</div>
 					</div>
