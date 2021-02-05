@@ -25,7 +25,6 @@ class GistsPage extends React.Component {
 		super();
 		this.state = {
 			userSearchValue: '',
-			usernameGist: '',
 			isShowUsersSearchList: false,
 			page: 1,
 		};
@@ -36,6 +35,7 @@ class GistsPage extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		// Show error messages for 5 secs and then fade them awas
 		if (nextProps.alertMessageResponse !== this.props.alertMessageResponse && !isMessageShow) {
 			isMessageShow = true;
 			NotificationManager.error(nextProps.alertMessageResponse);
@@ -48,61 +48,57 @@ class GistsPage extends React.Component {
 
 	handleSearchEnter = (event) => {
 		if (event.key === 'Enter') {
-			if(event.target.value){
-				this.props.getUserGists(event.target.value);
-			}
-			else {
-				this.props.getGists({ page: this.state.page, per_page: GISTS_LIMIT_PER_PAGE });
-			}
-			// this.setState({ isShowUsersSearchList: false });
+			this.fetchUserGists();
 		}
 	};
 
-	// searchUsers = (event) => {
-	// 	const { value } = event.target;
-	// 	this.setState({ userSearchValue: value, isShowUsersSearchList: true });
+	fetchUserGists = () => {
+		const { userSearchValue } = this.state;
 
-	// 	if (value.length > 2) {
-	// 		this.props.searchUsers(value);
-	// 	}
-	// }
-
-	// handleSelectUser = (item) => {
-	// 	this.props.getUserGists(item.login);
-	// 	this.setState({ isShowUsersSearchList: false });
-	// }
+		if (userSearchValue) {
+			this.props.getUserGists(userSearchValue);
+		} else {
+			// When user search box is empty, fetch public gists
+			this.props.getGists({ page: 1, per_page: GISTS_LIMIT_PER_PAGE });
+		}
+	}
 
 	handleInputChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
-	};
 
-	userSearchOnFocus = () => {
-		this.setState({ isShowUsersSearchList: true });
+		// When user search box is empty, fetch public gists 
+		if (!event.target.value) {
+			this.props.getGists({ page: 1, per_page: GISTS_LIMIT_PER_PAGE });
+		}
 	};
 
 	render() {
-		const { isShowUsersSearchList } = this.state;
 		return (
-			// <Container>
 			<div className="container">
 				<div className="app-wrapper">
-					{/* <CustomScrollbars> */}
-					<div className="row">
-						<div className="col-md-6">
+					<div className="row search-wrapper">
+						<div className="col-11">
 							<SearchBox
 								onChange={this.handleInputChange}
-								name="usernameGist"
-								value={this.state.usernameGist}
+								name="userSearchValue"
+								value={this.state.userSearchValue}
 								onKeyDown={this.handleSearchEnter}
 								placeholder="Enter username to get gists"
 							/>
 						</div>
-						</div> */}
-						<div className="col-md-12">
+						<div className="col-1 find-btn-wrapper">
+							<button className="btn btn-success find-btn" onClick={this.fetchUserGists}>Find</button>
+						</div>
+					</div>
+				
+					<hr />
+
+					<div className="row">
+						<div className="col-12">
 							{this.props?.gists.length ? (
 								<>
 									<GistsLists data={this.props.gists} loading={this.props.isGetGistsInProgress} />
-									<div className="col-md-12 text-center">
+									<div className="col-12 text-center">
 										<ButtonGroup vertical={false}>
 											<Tooltip title="Previous Page">
 												<Button
@@ -139,15 +135,13 @@ class GistsPage extends React.Component {
 									</div>
 								</>
 							) : (
-								<EmptyTablePlaceholder />
-							)}
+									<EmptyTablePlaceholder />
+								)}
 						</div>
 					</div>
-					{/* </CustomScrollbars> */}
+					</div>
 					<NotificationContainer />
 				</div>
-			</div>
-			// </Container>
 		);
 	}
 }
