@@ -5,9 +5,7 @@ import { bindActionCreators } from 'redux';
 import GistsLists from '../../../components/GistsList';
 import InputField from '../../../components/InputField';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import EmptyTablePlaceholder from 'components/EmptyTablePlaceholder/index';
-import Pagination from '../../../components/Pagination';
-import {GISTS_LIMIT_PER_PAGE} from '../../../constants/Global';
+import { GISTS_LIMIT_PER_PAGE } from '../../../constants/Global';
 
 import 'react-notifications/lib/notifications.css';
 
@@ -59,7 +57,7 @@ class GistsPage extends React.Component {
 		const { userSearchValue } = this.state;
 
 		if (userSearchValue) {
-			this.props.getUserGists({username: userSearchValue});
+			this.props.getUserGists({ username: userSearchValue });
 			this.setState({ isPublicGists: false });
 		} else {
 			// When user search box is empty, fetch public gists
@@ -72,8 +70,8 @@ class GistsPage extends React.Component {
 	};
 
 	handlePagination = (page) => {
-		this.setState({page});
-		this.props.getGists({page: page, per_page: GISTS_LIMIT_PER_PAGE});
+		this.setState({ page });
+		this.props.getGists({ page: page, per_page: GISTS_LIMIT_PER_PAGE });
 	}
 
 	render() {
@@ -91,31 +89,25 @@ class GistsPage extends React.Component {
 							/>
 						</div>
 						<div className="col-1 find-btn-wrapper">
-							<button className="btn btn-primary find-btn" onClick={this.fetchUserGists}><FontAwesomeIcon icon={faSearch}/></button>
+							<button className="btn btn-primary find-btn" onClick={this.fetchUserGists}><FontAwesomeIcon icon={faSearch} /></button>
 						</div>
 					</div>
-				
+
 					<hr />
 
 					<div className="row">
 						<div className="col-12">
-							{(!this.props.isGetGistsInProgress && this.props.gists.length > 0) ? (
-								<>
-									<GistsLists data={this.props.gists} loading={this.props.isGetGistsInProgress} />
-									{this.state.isPublicGists && <Pagination
-										page={this.state.page}
-										prevClick={() => this.handlePagination(this.state.page - 1)}
-										nextClick={() => this.handlePagination(this.state.page + 1)}
-									/>}
-								</>
-							) : (
-									<EmptyTablePlaceholder />
-								)}
+							<GistsLists
+								data={this.props.gists}
+								loading={this.props.isGetGistsInProgress}
+								page={this.state.page}
+								handlePagination={this.handlePagination}
+							/>
 						</div>
 					</div>
-					</div>
-					<NotificationContainer />
 				</div>
+				<NotificationContainer />
+			</div>
 		);
 	}
 }
