@@ -22,13 +22,14 @@
   .profile-card header {
     width: 179px;
     height: 280px;
-    padding: 40px 20px 30px 20px;
+    padding: 50px 20px 30px 20px;
     display: inline-block;
     float: left;
     border-right: 2px dashed #EEEEEE;
     background: #FFFFFF;
     color: #000000;
-    margin-top: 50px;
+    // margin-top: 50px;
+    // margin-top: 12px !important;
     opacity: 0;
     text-align: center;
     -webkit-animation: moveIn 1s 3.1s ease forwards;
@@ -36,17 +37,17 @@
   }
   
   .profile-card header h1 {
-    color: #FF5722;
+    margin-bottom: 0px;
   }
   
   .profile-card header a {
     display: inline-block;
     text-align: center;
     position: relative;
-    margin: 25px 30px;
+    margin: 10px 15px;
   }
   
-  .profile-card header a:after {
+  .profile-card header .avatar:after {
     position: absolute;
     content: "";
     bottom: 3px;
@@ -57,7 +58,7 @@
     -webkit-transform: scale(0);
     transform: scale(0);
     background: -webkit-linear-gradient(top, #2196F3 0%, #2196F3 50%, #FFC107 50%, #FFC107 100%);
-    background: linear-gradient(#2196F3 0%, #2196F3 50%, #FFC107 50%, #FFC107 100%);
+    background: linear-gradient(#2196F3 0%, #2196F3 50%, #FFC107 50%, #f0ede3 100%);
     -webkit-border-radius: 50%;
     border-radius: 50%;
     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -87,7 +88,7 @@
     height: 180px;
     display: inline-block;
     float: right;
-    padding: 50px 20px 30px 20px;
+    padding: 50px 0px;
     background: #FFFFFF;
     color: #333333;
     margin-top: 50px;
@@ -115,7 +116,7 @@
   
   .profile-social-links li {
     list-style: none;
-    margin: -5px 0px 0px 0px;
+    // margin: -5px 0px 0px 0px;
     padding: 0px;
     float: left;
     width: 25%;
@@ -403,19 +404,26 @@
     }
   }
   
+  .profile-card .profile-bio p {
+      font-size: 14px !important;
+      padding: 0px 5px;
+  } 
+
   @media screen and (min-height: 480px) {
     .profile-card header {
       width: auto;
       height: auto;
-      padding: 30px 20px;
+      padding: 50px 20px 10px 20px;
       display: block;
       float: none;
       border-right: none;
+    //   margin-top: 12px !important;
     }
     .profile-card .profile-bio {
       width: auto;
-      height: auto;
-      padding: 15px 20px 30px 20px;
+    //   height: auto;
+    height: 80px;
+      padding: 15px 0px;
       display: block;
       float: none;
     }

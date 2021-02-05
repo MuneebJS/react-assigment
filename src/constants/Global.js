@@ -1,0 +1,1 @@
+export const GISTS_LIMIT_PER_PAGE = 12;
