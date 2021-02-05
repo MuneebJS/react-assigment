@@ -9,16 +9,16 @@ const GistsList = ({ data, loading }) => {
 
 	data.map((item) => {
 		listContent.push(
-			<div className="col-4" key={item.id}>
+			<div className="col-12" key={item.id}>
 				<GistCard data={item} />
 			</div>
 		);
 	});
 
 	return (
-		<CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
+		// <CustomScrollbars className="card-view scrollbar scrollbar" style={{ height: '100vh' }}>
 			<div className="row list-parent">{loading ? <CircularProgress /> : listContent}</div>
-		</CustomScrollbars>
+		// </CustomScrollbars>
 	);
 };
 
